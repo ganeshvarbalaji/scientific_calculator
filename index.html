@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.0/math.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer_rim">
+        <div class = "space_between_inner_rim_and_outer_rim">
+            <div class="inner_rim">
+          
+
+
+
+<input id="input_field" value="">
+<input type="text" id="output_field" value="" readonly>
+
+<div class="keys">
+    <div class="l1">
+        <label for="shift" class="l-yellow">SHIFT</label>
+        <label id="alpha-l" for="alpha" class="l-purple">ALPHA</label>
+        <label id="mode-l" for="mode" class="l-white">MODE</label>
+        <label id="clr-l" for="mode" class="l-yellow">CLR</label>
+        <label id="on-l">ON</label>
+    </div>
+
+    <div class="round_buttons">
+        <button onclick="shift_pressed()" id="shift" name="shift">&nbsp;</button>
+        <button id="alpha" name="alpha">&nbsp;</button>
+        <button id="mode" name="mode">&nbsp;</button>
+        <button id="on">&nbsp;</button>
+    </div>
+
+    
+
+    <div class="arrow_buttons">
+        <button id="up"></button>
+        <button id="left"></button>
+        <button id="right"></button>
+        <button id="down"></button>
+    </div>
+    
+    
+    <div class="small_buttons">    
+        <label class="l2" id="x_inverse-l">x!</label>
+        <label class="l2" id="ncr-l">nPr</label>
+        <label class="l2" id="pol-l">Rec&#x0028;&nbsp;&nbsp;&nbsp;&nbsp;<span class="l-purple">:</span></label>
+        <label class="l2" id="cube-l">&#x221B;</label>
+
+        <button class="sbe" id="x_inverse">x<sup>-1</sup></button>
+        <button class="sbe" id="nCr">nCr</button>
+        <button class="sbe" id="pol">Pol&#x0028; </button>
+        <button class="sbe" id="x_cube">x<sup>3</sup></button>
+
+
+        <label class="l3" id="abc-l">b/c</label>
+        <label class="l3" id="exp-l"><sup>x</sup>&#x221A;</label>
+        <label class="l3" id="log-l">10<sup>x</sup></label>
+        <label class="l3" id="ln-l">e<sup>x</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i><span class="l-purple">e</span></i></label>
+
+        <button class="sbe" id="fraction">a b/c</button>
+        <button class="sbe" id="sqrt"> &#x221A; </button>
+        <button class="sbe" id="exponent">^</button>
+        <button class="sbe" id="square">x<sup>2</sup></button>
+        <button class="sbe" id="log">log</button>
+        <button class="sbe" id="natural_log">ln</button>
+        
+        <label class="l4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A</label>
+        <label class="l4">&nbsp;&#x2190;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B</label>
+        <label class="l4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C</label>
+        <label class="l4">sin<sup>-1</sup>&nbsp;&nbsp;&nbsp;D</label>
+        <label class="l4">cos<sup>-1</sup>&nbsp;&nbsp;&nbsp;E</label>
+        <label class="l4">tan<sup>-1</sup>&nbsp;&nbsp;&nbsp;F</label>
+
+
+
+        <button onclick="minus_sign()" class="sbe" id="minus">&#x0028;&#x002D;&#x0029;</button>
+        <button class="sbe" id="deg_min_sec">&#x00B0;&nbsp;&#x2019;&nbsp;&#x201D;</button>
+        <button class="sbe" id="hyp">hyp</button>
+        <button onclick="trigonometry('sin')" class="sbe" id="sin">sin</button>
+        <button onclick="trigonometry('cos')" class="sbe" id="cos">cos</button>
+        <button onclick="trigonometry('tan')" class="sbe" id="tan">tan</button>
+        
+        <label class="l5">STO</label>
+        <label class="l5">&#x2190;</label>
+        
+        <label id="x-l" class="l5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</label>
+        <label class="l5">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y</label>
+        <label class="l5">M-&nbsp;&nbsp;&nbsp;M+</label>
+        
+        
+        <button class="sbe" id="RCL">RCL</button>
+        <button class="sbe" id="ENG">ENG</button>
+        <button onclick="append_to_display(`(`)" class="sbe" id="open_brace">&#x0028;</button>
+        <button onclick="append_to_display(`)`)" class="sbe" id="close_brace">&#x0029;</button>
+        <button class="sbe" id="comma">,</button>
+        <button class="sbe" id="M+">M+</button>
+    </div>
+
+    <div class="big_buttons">
+        
+        <label class="l6" id="ins-l">INS</label>
+        <label class="l6" id="off">OFF</label>
+
+        <button onclick="append_to_display('7')" id="7">7</button>
+        <button onclick="append_to_display('8')" id="8">8</button>
+        <button onclick="append_to_display('9')" id="9">9</button>
+        <button onclick="delete_last_char()" id="DEL">DEL</button>
+        <button onclick="clear_display()" id="AC">AC</button>
+        
+        <label id="l7-placeholder"></label>
+        <button onclick="append_to_display('4')" id="4">4</button>
+        <button onclick="append_to_display('5')" id="5">5</button>
+        <button onclick="append_to_display('6')" id="6">6</button>
+        <button onclick="append_operator_to_display('\u2715')" id="multiply">&#x2715;</button>
+        <button onclick="append_operator_to_display('\u00F7')" id="divide">&#x00F7;</button>
+
+        <label id="l8-placeholder"></label>
+        <button onclick="append_to_display('1')" id="1">1</button>
+        <button onclick="append_to_display('2')" id="2">2</button>
+        <button onclick="append_to_display('3')" id="3">3</button>
+        <button onclick="append_to_display('+')" id="add">&#x002B;</button>
+        <button onclick="append_to_display('-')" id="subtract">&#x002D;</button>
+
+        <label class="l9">Rnd</label>
+        <label class="l9">Ran#</label>
+        <label class="l9">&pi;</label>
+        <label class="l9">DRG &#x27A4;</label>
+        <label class="l9">%</label>
+        <button onclick="append_to_display('0')" id="0">0</button>
+        <button onclick="append_to_display('.')" id=".">.</button>
+        <button onclick="power10()" id="power10">&#x2715;10<sup>x</sup></button>
+        <button onclick="ans_click()" id="ans">Ans</button>
+        <button onclick="equals()" id="equal">&equals;</button>
+    </div>
+</div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="script/index.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,309 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family:'Fira Code', Courier, monospace;
+    font-weight: bold;
+}
+
+
+.outer_rim {
+    background-color: #56534e;
+    /* 77 */
+    width: calc(5*77px);
+    /* 161.5 */
+    height: calc(5*161.5px);
+    position: relative;
+    border-radius: 20px;
+}
+
+.space_between_inner_rim_and_outer_rim {
+    background-color: 
+            linear-gradient(to left, #000000, #827f7a);
+            /* ,
+            linear-gradient(90deg, #524f4a, #827f7a),
+            linear-gradient(180deg,#524f4a, #827f7a),
+            linear-gradient(270deg, #524f4a, #827f7a); */
+    width: calc(5*77px - 40px);
+    height: calc(5*161.5px - 40px);
+    position: relative;
+    top: 20px;
+    left: 20px;
+    border-radius: 20px;
+}
+
+.inner_rim{
+    background-color: #57544f;
+    /* background-color: blue; */
+    position: relative;
+    
+    width: calc(5*77px - 40px);
+    height: calc(5*161.5px - 40px);
+    border-radius: 20px;
+}
+
+.keys{
+    display: grid;
+    grid-auto-flow: column;
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* grid-template-rows: repeat(10, 20px); */
+    /* grid-auto-rows: repeat(10, 20px); */
+    
+    grid-template-areas:
+    "l1 l1 l1 l1 l1 l1"
+    "rb rb rb rb rb rb"
+    "ab ab ab ab ab ab"
+    "ab ab ab ab ab ab"
+    "ab ab ab ab ab ab"
+    "sb sb sb sb sb sb"
+    "sb sb sb sb sb sb"
+    "sb sb sb sb sb sb"
+    "sb sb sb sb sb sb"
+    "bb bb bb bb bb bb"
+    "bb bb bb bb bb bb"
+    "bb bb bb bb bb bb"
+    "bb bb bb bb bb bb"
+    "bb bb bb bb bb bb"
+    "bb bb bb bb bb bb"
+    "bb bb bb bb bb bb";
+}
+
+
+label {
+    font-size: x-small;
+    color: yellow;
+    width: 100%;
+}
+
+.l1 {
+    display: grid;
+    grid-area: l1;
+    grid-template-columns: repeat(12, 1fr);
+    justify-items: center;
+}
+
+
+
+#alpha-l {
+    grid-column: 3 / 4;
+}
+
+#mode-l {
+    grid-column: 9 / 10;
+}
+
+#clr-l{
+    grid-column: 10 / 11;
+    text-align: right;
+}
+
+#on-l{
+    grid-column: 12 / 13;
+}
+
+
+
+
+
+.l2 {
+    text-align: center;
+}
+#pol-l {
+    grid-column: 5 / 6;
+}
+
+.l3 {
+    text-align: center;
+}
+#exp-l {
+    grid-column: 4 / 5;
+}
+
+.l4 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.l5 {
+    text-align: center;
+}
+
+#x-l {
+    grid-column: 4/5;
+}
+
+#ins-l {
+    grid-column: 4/5;
+}
+
+.l6 {
+    text-align: center;
+}
+
+#l7-placeholder {
+    grid-column: -2 / -1;
+    height: 13.14px;
+}
+
+
+
+#l8-placeholder {
+    grid-column: -2 / -1;
+    height: 13.14px;
+}
+
+.l9 {
+    text-align: center;
+}
+
+/* .l2 {
+    display: grid;
+    grid-area: l2;
+    grid-template-columns: repeat(12, 1fr);
+    justify-items: center;
+}
+
+#ncr-l {
+    grid-column: 3 / 4;
+}
+
+#pol-l-1 {
+    grid-column: 9 / 10;
+}
+
+#pol-l-2 {
+    text-align: right;
+}
+
+#cube-l {
+    text-align: right;
+} */
+
+
+/* ROUND BUTTONS STYLE BEGINS */
+
+.round_buttons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-area: rb;
+    justify-items: center;
+}
+
+#mode {
+    grid-column: 5 / 6;
+}
+
+#on{
+    grid-column: 6 / 7;
+}
+
+.round_buttons button {
+    border: none;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+}
+
+/* END OF ROUND BUTTON STYLES */
+
+
+/* ARROW BUTTONS STYLE BEGINS */
+.arrow_buttons{
+    display: grid;
+    grid-area: ab;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+}
+
+.arrow_buttons button {
+    border: none;
+    height: 35px;
+}
+
+#up{
+    grid-column: 3 / 5;
+    width: 35px;
+    border-radius: 5px 5px 20px 20px;
+}
+
+#left{
+    grid-column: 2 / 4;
+    width: 35px;
+    border-radius: 5px 30px 30px 5px;
+    margin-left: 20px;
+}
+
+#right {
+    grid-column: 4 / 6;
+    width: 35px;
+    border-radius: 30px 5px 5px 30px;
+    margin-right: 20px;
+}
+
+#down {
+    grid-column: 3 / 5;
+    width: 35px;
+    border-radius: 20px 20px 5px 5px;
+}
+/* ARROW BUTTON STYLE ENDS */
+
+
+/* SMALL BUTTON STYLE BEGINS */
+.small_buttons {
+    display: grid;
+    grid-area: sb;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    gap: 2px;
+}
+
+.small_buttons button {
+    border: none;
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#pol {
+    grid-column: 5 / 6;
+}
+
+/* SMALL BUTTON STYLE ENDS */
+
+/* BIG BUTTON STYLE BEGINS */
+.big_buttons {
+    display: grid;
+    margin-top: 20px;
+    grid-area: bb;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 5px;
+    
+}
+
+
+.big_buttons button {
+    border: none;
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 20px;
+}
+/* BIG BUTTON STYLE ENDS */
+
+
+input {
+    font-family: 'Fira Code';
+    font-size: larger;
+    border: none;
+    width: 100%;
+}
+
+#input_field {
+    height: 40px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+#output_field {
+    height: 70px;
+    font-size: 60px;
+    text-align: right;
+}
